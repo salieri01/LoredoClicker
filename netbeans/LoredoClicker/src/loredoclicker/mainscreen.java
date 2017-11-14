@@ -185,7 +185,6 @@ public class mainscreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonLoredoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoredoActionPerformed
-        // TODO add your handling code here:
         cabelos = cabelos + upPeruca; //Toda vez que clicado, o botão irá incrementar o cabelo
         labelCabelos.setText(cabelos + ""); //Atualiza a quantidade de cabelos
     }//GEN-LAST:event_buttonLoredoActionPerformed
