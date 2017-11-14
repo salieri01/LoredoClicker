@@ -185,11 +185,21 @@ public class mainscreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonLoredoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoredoActionPerformed
+        // TODO add your handling code here:
         cabelos = cabelos + upPeruca; //Toda vez que clicado, o botão irá incrementar o cabelo
         labelCabelos.setText(cabelos + ""); //Atualiza a quantidade de cabelos
     }//GEN-LAST:event_buttonLoredoActionPerformed
 
     private void buttonPerucaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPerucaActionPerformed
+        if (cabelos >= precoPeruca) { //Preço da peruca
+			cabelos -= precoPeruca;
+			upPeruca++;
+
+			precoPeruca += (precoPeruca >> 1 > 500) ? 500 : precoPeruca >> 1;
+
+			labelPeruca.setText(precoPeruca + ""); //Atualiza o preço da peruca
+            labelCabelos.setText(cabelos + ""); //Atualiza a quantidade de cabelos
+        }
     }//GEN-LAST:event_buttonPerucaActionPerformed
 
     private void buttonTonicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTonicoActionPerformed
