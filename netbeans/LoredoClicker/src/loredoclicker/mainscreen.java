@@ -203,10 +203,43 @@ public class mainscreen extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonPerucaActionPerformed
 
     private void buttonTonicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTonicoActionPerformed
+        if (cabelos >= precoTonico) { //Preço do tônico
+			cabelos -= precoTonico;
+
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					cabelos += upTonico;
+					labelCabelos.setText(cabelos + "");
+				}
+			}, 1000, 1000);
+
+			precoTonico += (precoTonico >> 1 > 5000) ? 5000 : precoTonico >> 1;
+
+			labelTonico.setText(precoTonico + "");
+            labelCabelos.setText(cabelos + "");
+        }
     }//GEN-LAST:event_buttonTonicoActionPerformed
 
     private void buttonShampooActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonShampooActionPerformed
     {//GEN-HEADEREND:event_buttonShampooActionPerformed
+		if (cabelos >= precoShampoo) {
+			cabelos -= precoShampoo;
+
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					cabelos += upShampoo;
+					labelCabelos.setText(cabelos + "");
+				}
+			}, 1000, 2000);
+
+			precoShampoo += (precoShampoo >> 1 > 100000) ? 100000:
+					precoShampoo >> 1;
+
+			labelShampoo.setText(precoShampoo + "");
+			labelCabelos.setText(cabelos + "");
+		}
     }//GEN-LAST:event_buttonShampooActionPerformed
 
 
