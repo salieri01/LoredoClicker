@@ -7,13 +7,10 @@ package loredoclicker;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
-import java.io.File;
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import java.util.TimerTask;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
 
 /**
  *
@@ -59,6 +56,33 @@ public class mainscreen extends javax.swing.JPanel {
 		newFrame.setLocationRelativeTo(null);
 		newFrame.setVisible(true);
     }
+
+	@Override
+	public void paint(Graphics g)
+	{
+		if (cabelos < precoPeruca)
+			buttonPeruca.setEnabled(false);
+		else
+			buttonPeruca.setEnabled(true);
+
+		if (cabelos < precoTonico)
+			buttonTonico.setEnabled(false);
+		else
+			buttonTonico.setEnabled(true);
+
+		if (cabelos < precoShampoo)
+			buttonShampoo.setEnabled(false);
+		else
+			buttonShampoo.setEnabled(true);
+
+		super.paint(g);
+
+		try {
+			Thread.sleep(15);
+			repaint();
+		} catch (InterruptedException e) {
+		}
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
